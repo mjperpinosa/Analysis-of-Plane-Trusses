@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginBottom="20dp"
+    tools:context="com.example.root.mafapt.Launcher"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="495dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="JOINT DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Coordinates below. Each line should consist of X Y (separated by a space)."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etJD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:hint="@string/JDHint"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="JOINT LOAD DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Joint Load Data Below. Separate each line of data with a single space."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etJLD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="SUPPORT DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Support Data below. Separate each line of data with a single space."
+                android:textColorLink="@android:color/holo_blue_bright" />
+
+            <GridLayout
+                android:id="@+id/glRestraintCodes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:columnCount="2"
+                android:foregroundGravity="center"
+                android:rowCount="5">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Type of Support"
+                    android:textAlignment="center"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Restraint Code"
+                    android:textAlignment="center"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Free joint (no support)"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="0 0"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Roller with horizontal reaction"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="1 0"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Roller with vertical reaction"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="0 1"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Hinge"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="1 1"
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
+            </GridLayout>
+
+            <EditText
+                android:id="@+id/etSD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:hint="@string/SDHint"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="MATERIAL PROPERTY DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input the Material Properties below."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etMPD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="CROSS-SECTIONAL PROPERTY DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Cross-Sectional Properties below."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etCSPD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="MEMBER DATA"
+                android:textColor="@android:color/background_light"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Member Data below. Separate each line of data with a single space."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etMD"
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:ems="10"
+                android:inputType="textMultiLine|phone"
+                android:digits="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, , \n, -, ."
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnSubmitInputs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SUBMIT INPUTS"
+                android:textColorLink="@android:color/holo_blue_bright"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

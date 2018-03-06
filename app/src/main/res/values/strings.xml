@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Plane Trusses Analyser</string>
+    <string name="JDHint">X1 Y1\nX2 Y2\nX3 Y3\n</string>
+    <string name="SDHint">JointNo. C1 C2\nJointNo. C1 C2\nJointNo. C1 C2\n</string>
+</resources>
