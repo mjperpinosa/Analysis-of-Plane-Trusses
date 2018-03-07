@@ -13,11 +13,11 @@ public class Launcher extends AppCompatActivity {
 
     private Button btnSubmitInputs;
 
-    public static ArrayList<Integer[]> jointDataList;
-    public static ArrayList<Integer[]> jointLoadDataList;
+    public static ArrayList<Double[]> jointDataList;
+    public static ArrayList<Double[]> jointLoadDataList;
     public static ArrayList<Integer[]> supportDataList;
-    public static ArrayList<Integer> materialPropertyDataList;
-    public static ArrayList<Integer> crossSectionalPropertyDataList;
+    public static ArrayList<Double> materialPropertyDataList;
+    public static ArrayList<Double> crossSectionalPropertyDataList;
     public static ArrayList<Integer[]> memberDataList;
     StringBuilder out;
     StringBuilder sizes;
@@ -60,26 +60,32 @@ public class Launcher extends AppCompatActivity {
                             materialPropertyData.trim().equals("") ||
                             crossSectionalPropertyData.trim().equals("") ||
                             memberData.trim().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Please do not leave an empty data.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please do not leave an empty data field.", Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     String[] tempStringArray0;
                     String[] tempStringArray1;
                     Integer[] tempList;
+                    Double[] doubleTempList;
 
                     try {
 
                         // Joint Data
 
                         tempStringArray0 = jointData.split("\n");
-                        tempList = new Integer[2];
+                        doubleTempList = new Double[2];
                         //Toast.makeText(getApplicationContext(), "Length of tempStringArray0 = " + tempStringArray0.length, Toast.LENGTH_LONG).show();
 
                         if(tempStringArray0.length == 1) {
                             tempStringArray1 = tempStringArray0[0].split(" ");
                             out.append(tempStringArray1[0] + " " + tempStringArray1[1]);
                             sizes.append("1 ");
+
+                            doubleTempList[0] = Double.parseDouble(tempStringArray1[0]);
+                            doubleTempList[1] = Double.parseDouble(tempStringArray1[1]);
+
+                            jointDataList.add(doubleTempList);
                         } else {
                             for(int i = 0; i < tempStringArray0.length; i++) {
                                 //Toast.makeText(getApplicationContext(), "loop = " + i, Toast.LENGTH_LONG).show();
@@ -88,10 +94,10 @@ public class Launcher extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Check Joint Data. Please input valid data and follow format.", Toast.LENGTH_LONG).show();
                                     return;
                                 }
-                                tempList[0] = Integer.parseInt(tempStringArray1[0]);
-                                tempList[1] = Integer.parseInt(tempStringArray1[1]);
+                                doubleTempList[0] = Double.parseDouble(tempStringArray1[0]);
+                                doubleTempList[1] = Double.parseDouble(tempStringArray1[1]);
 
-                                jointDataList.add(tempList);
+                                jointDataList.add(doubleTempList);
 
                                 out.append(tempStringArray1[0] + " " + tempStringArray1[1]);
                                 if(i < tempStringArray0.length-1) out.append(":");
@@ -103,12 +109,19 @@ public class Launcher extends AppCompatActivity {
                         // Joint Load Data
 
                         tempStringArray0 = jointLoadData.split("\n");
-                        tempList = new Integer[3];
+                        doubleTempList = new Double[3];
+
 
                         if(tempStringArray0.length == 1) {
                             tempStringArray1 = tempStringArray0[0].split(" ");
                             out.append(tempStringArray1[0] + " " + tempStringArray1[1] + " " + tempStringArray1[2]);
                             sizes.append("1 ");
+
+                            doubleTempList[0] = Double.parseDouble(tempStringArray1[0]);
+                            doubleTempList[1] = Double.parseDouble(tempStringArray1[1]);
+                            doubleTempList[2] = Double.parseDouble(tempStringArray1[2]);
+
+                            jointLoadDataList.add(doubleTempList);
                         } else {
 
                             for (int i = 0; i < tempStringArray0.length; i++) {
@@ -117,11 +130,11 @@ public class Launcher extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Check Joint Load Data. Please input valid data and follow format.", Toast.LENGTH_LONG).show();
                                     return;
                                 }
-                                tempList[0] = Integer.parseInt(tempStringArray1[0]);
-                                tempList[1] = Integer.parseInt(tempStringArray1[1]);
-                                tempList[2] = Integer.parseInt(tempStringArray1[2]);
+                                doubleTempList[0] = Double.parseDouble(tempStringArray1[0]);
+                                doubleTempList[1] = Double.parseDouble(tempStringArray1[1]);
+                                doubleTempList[2] = Double.parseDouble(tempStringArray1[2]);
 
-                                jointLoadDataList.add(tempList);
+                                jointLoadDataList.add(doubleTempList);
 
                                 out.append(tempStringArray1[0] + " " + tempStringArray1[1] + " " + tempStringArray1[2]);
                                 if (i < tempStringArray0.length - 1) out.append(":");
@@ -140,6 +153,13 @@ public class Launcher extends AppCompatActivity {
                             tempStringArray1 = tempStringArray0[0].split(" ");
                             out.append(tempStringArray1[0] + " " + tempStringArray1[1] + " " + tempStringArray1[2]);
                             sizes.append("1 ");
+
+                            tempList[0] = Integer.parseInt(tempStringArray1[0]);
+                            tempList[1] = Integer.parseInt(tempStringArray1[1]);
+                            tempList[2] = Integer.parseInt(tempStringArray1[2]);
+
+                            supportDataList.add(tempList);
+
                         } else {
                             for (int i = 0; i < tempStringArray0.length; i++) {
                                 tempStringArray1 = tempStringArray0[i].split(" ");
@@ -165,12 +185,18 @@ public class Launcher extends AppCompatActivity {
 
                         tempStringArray0 = materialPropertyData.split("\n");
                         if(tempStringArray0.length == 1) {
-                            out.append(tempStringArray0[0]);
+                            if(tempStringArray0[0].split(" ").length > 1) {
+                                Toast.makeText(Launcher.this, "Separate each Material Property by next line.", Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                            materialPropertyDataList.add(Double.parseDouble(tempStringArray0[0]));
+
+                            out.append(tempStringArray0[0].trim());
                             sizes.append("1 ");
                         } else {
                             for (int i = 0; i < tempStringArray0.length; i++) {
-                                materialPropertyDataList.add(Integer.parseInt(tempStringArray0[i]));
-                                out.append(tempStringArray0[i]);
+                                materialPropertyDataList.add(Double.parseDouble(tempStringArray0[i]));
+                                out.append(tempStringArray0[i].trim());
                                 if (i < tempStringArray0.length - 1) out.append(" ");
                             }
                             sizes.append(materialPropertyDataList.size() + " ");
@@ -183,12 +209,19 @@ public class Launcher extends AppCompatActivity {
                         tempStringArray0 = crossSectionalPropertyData.split("\n");
 
                         if(tempStringArray0.length == 1) {
-                            out.append(tempStringArray0[0]);
+                            if(tempStringArray0[0].split(" ").length > 1) {
+                                Toast.makeText(Launcher.this, "Separate each Cross-Sectional Property by next line.", Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                            crossSectionalPropertyDataList.add(Double.parseDouble(tempStringArray0[0]));
+
+                            out.append(tempStringArray0[0].trim());
                             sizes.append("1 ");
+
                         } else {
                             for (int i = 0; i < tempStringArray0.length; i++) {
-                                crossSectionalPropertyDataList.add(Integer.parseInt(tempStringArray0[i]));
-                                out.append(tempStringArray0[i]);
+                                crossSectionalPropertyDataList.add(Double.parseDouble(tempStringArray0[i]));
+                                out.append(tempStringArray0[i].trim());
                                 if (i < tempStringArray0.length - 1) out.append(" ");
                             }
                             sizes.append(crossSectionalPropertyDataList.size() + " ");
@@ -226,7 +259,7 @@ public class Launcher extends AppCompatActivity {
                         }
                         sizes.append(memberDataList.size());
 
-                        Intent summariseInputIntent = new Intent(getApplicationContext(), InputsSummary.class);
+                        Intent summariseInputIntent = new Intent(getApplicationContext(), Process.class);
                         Bundle extras = new Bundle();
                         extras.putString("data", out.toString());
                         extras.putString("sizes", sizes.toString());
