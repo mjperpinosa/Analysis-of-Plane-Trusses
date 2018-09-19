@@ -1,5 +1,8 @@
 # Analysis of Plane Trusses
+<hr>
 <strong><em> For Civil Engineers </em></strong>
+<hr>
+<br>
 An Android mobile application used for Analysis of Plane Trusses
 
 This mobile app covers the following processes:
